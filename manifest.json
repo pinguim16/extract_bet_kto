@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Betting Data Extractor KTO",
+    "description": "Uma extensão Chrome para extrair dados de apostas do site KTO e exportá-los para arquivo CSV.",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "downloads"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.kto.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "host_permissions": [
+      "https://*.kto.com/*"
+    ]
+  }
+  
